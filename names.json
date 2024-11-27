@@ -57,7 +57,8 @@
     },
     {
       "name": "Captain Phasma",
-      "isSpaceName": true
+      "isSpaceName": true,
+      "description": "Depends on first name"
     },
     {
       "name": "Unkar Plutt",
@@ -66,6 +67,58 @@
     {
       "name": "Teedo",
       "isSpaceName": true
+    },
+    {
+      "name": "Rose Tico",
+      "isSpaceName": true
+    },
+    {
+      "name": "Vice Admiral Holdo",
+      "isSpaceName": true
+    },
+    {
+      "name": "Yoda",
+      "isSpaceName": true
+    },
+    {
+      "name": "Lieutenant Connix",
+      "isSpaceName": true,
+      "description": "Depends on first name"
+    },
+    {
+      "name": "Commander D'Acy",
+      "isSpaceName": true,
+      "description": "Depends on first name"
+    },
+    {
+      "name": "R2-D2",
+      "isSpaceName": true
+    },
+    {
+      "name": "BB-8",
+      "isSpaceName": true
+    },
+    {
+      "name": "Master Codebreaker",
+      "isSpaceName": true
+    },
+    {
+      "name": "Admiral Ackbar",
+      "isSpaceName": true
+    },
+    {
+      "name": "Captain Peavey",
+      "isSpaceName": true,
+      "description": "Depends on first name"
+    },
+    {
+      "name": "Captain Canady",
+      "isSpaceName": true,
+      "description": "Depends on first name"
+    },
+    {
+      "name": "Paige Tico",
+      "isSpaceName": true
     }
   ]
-} 
+}

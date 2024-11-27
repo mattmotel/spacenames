@@ -121,21 +121,20 @@
   }
 
   .tooltip {
-      background: linear-gradient(145deg, #333, #222);
-      color: #feda4a;
-      padding: 15px;
-      border-radius: 10px;
-      max-width: 250px;
-      box-shadow:
-          0 0 30px rgba(0, 0, 0, 0.8),
-          0 0 15px rgba(254, 218, 74, 0.3),
-          inset 0 0 10px rgba(254, 218, 74, 0.1);
-      border: 1px solid rgba(254, 218, 74, 0.3);
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
       font-size: 14px;
-      line-height: 1.6;
       z-index: 1000;
-      backdrop-filter: blur(5px);
-      text-shadow: 0 0 10px rgba(254, 218, 74, 0.3);
+      max-width: 280px;
+      width: calc(100% - 40px); /* Responsive width */
+      word-wrap: break-word;
+      line-height: 1.4;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      white-space: normal; /* Ensures text wraps */
+      text-align: left;
   }
 
   td:first-child {
@@ -195,11 +194,14 @@
 
       /* Make tooltip position better for mobile */
       .tooltip {
-          max-width: 200px;
-          left: 50% !important;
+          max-width: 260px;
+          font-size: 13px;
+          padding: 10px;
+          /* Position tooltips better on mobile */
+          left: 50% !important; /* Override inline styles */
           transform: translateX(-50%);
-          bottom: 100%;
-          margin-bottom: 10px;
+          top: auto !important; /* Override inline styles */
+          bottom: 20px;
       }
   }
 
