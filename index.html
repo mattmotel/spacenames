@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space Names Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #feda4a;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            /* Enhanced space background with stars */
+            background: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                rgba(0,0,0,.95);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            min-height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border-radius: 15px;
+            box-shadow: 
+                0 0 40px rgba(254, 218, 74, 0.15),
+                0 0 20px rgba(254, 218, 74, 0.1),
+                inset 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid rgba(254, 218, 74, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        th {
+            background: linear-gradient(145deg, #333, #222);
+            color: #feda4a;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            text-shadow: 0 0 10px rgba(254, 218, 74, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 20px 15px;
+        }
+
+        th:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(254, 218, 74, 0.5), 
+                transparent);
+        }
+
+        th:hover {
+            background: linear-gradient(145deg, #444, #333);
+            text-shadow: 0 0 15px rgba(254, 218, 74, 0.8);
+        }
+
+        td {
+            color: #fff;
+            padding: 15px;
+            border-bottom: 1px solid rgba(254, 218, 74, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background: rgba(254, 218, 74, 0.05);
+            box-shadow: 
+                0 0 20px rgba(254, 218, 74, 0.1),
+                inset 0 0 20px rgba(254, 218, 74, 0.05);
+        }
+
+        .crawl-container {
+            height: 250px;
+            overflow: hidden;
+            perspective: 300px;
+            background: black;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 
+                0 0 50px rgba(254, 218, 74, 0.2),
+                inset 0 0 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(254, 218, 74, 0.3);
+        }
+
+        .crawl {
+            color: #feda4a;
+            font-family: 'Arial', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            animation: crawl 20s linear infinite;
+            transform-origin: 50% 100%;
+            text-shadow: 0 0 20px rgba(254, 218, 74, 0.6);
+            letter-spacing: 2px;
+        }
+
+        .tooltip {
+            background: linear-gradient(145deg, #333, #222);
+            color: #feda4a;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 250px;
+            box-shadow: 
+                0 0 30px rgba(0, 0, 0, 0.8),
+                0 0 15px rgba(254, 218, 74, 0.3),
+                inset 0 0 10px rgba(254, 218, 74, 0.1);
+            border: 1px solid rgba(254, 218, 74, 0.3);
+            font-size: 14px;
+            line-height: 1.6;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            text-shadow: 0 0 10px rgba(254, 218, 74, 0.3);
+        }
+
+        td:first-child {
+            font-size: 24px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(254, 218, 74, 0.5);
+            color: #feda4a;
+        }
+
+        .info-icon {
+            color: #feda4a;
+            margin-left: 12px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(254, 218, 74, 0.5);
+        }
+
+        .info-icon:hover {
+            transform: scale(1.3) rotate(180deg);
+            text-shadow: 0 0 15px rgba(254, 218, 74, 0.8);
+        }
+
+        @keyframes crawl {
+            0% {
+                transform: rotateX(20deg) translateY(200px);
+            }
+            100% {
+                transform: rotateX(20deg) translateY(-200px);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            table {
+                margin: 10px 0;
+                width: 100%;
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .crawl-container {
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            .crawl {
+                font-size: 20px;
+            }
+
+            /* Make tooltip position better for mobile */
+            .tooltip {
+                max-width: 200px;
+                left: 50% !important;
+                transform: translateX(-50%);
+                bottom: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Even smaller screens */
+        @media (max-width: 480px) {
+            th {
+                font-size: 12px;
+                letter-spacing: 1px;
+                padding: 8px 5px;
+            }
+
+            td:first-child {
+                font-size: 18px;
+            }
+
+            .crawl {
+                font-size: 16px;
+            }
+
+            /* Stack tooltip for better mobile reading */
+            .tooltip {
+                max-width: 180px;
+                font-size: 12px;
+            }
+        }
+
+        /* Make sure table doesn't overflow on any screen */
+        table {
+            max-width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Ensure the container is responsive */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 800px;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <div class="crawl-container">
+        <div class="crawl">
+            In a galaxy far, far away...<br><br>
+            A guy named Matt had some beef<br>
+            with the idea that Luke was a space name.<br><br>
+            He took it upon himself to rate<br>
+            all of the Star Wars names he saw,<br>
+            determining whether or not they<br>
+            were truly space names...<br>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="namesTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Space Name?</th>
+                    <th onclick="sortTable(1)">Name</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('names.json');
+                const data = await response.json();
+                console.log('Loaded data:', data);
+                const tbody = document.querySelector('tbody');
+
+                data.names.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.isSpaceName ? '✅' : '❌'}</td>
+                        <td>
+                            ${item.name}
+                            ${item.description ? `<i class="fas fa-info-circle info-icon" data-description="${item.description}"></i>` : ''}
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                // Updated tooltip listeners
+                document.querySelectorAll('.info-icon').forEach(icon => {
+                    const showTooltip = (e) => {
+                        // Remove any existing tooltips
+                        const existingTooltip = document.querySelector('.tooltip');
+                        if (existingTooltip) existingTooltip.remove();
+
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'tooltip';
+                        tooltip.textContent = e.target.dataset.description;
+                        tooltip.style.left = e.pageX + 10 + 'px';
+                        tooltip.style.top = e.pageY + 10 + 'px';
+                        document.body.appendChild(tooltip);
+                        tooltip.style.display = 'block';
+                    };
+
+                    // Show tooltip on both hover and click
+                    icon.addEventListener('mouseover', showTooltip);
+                    icon.addEventListener('click', showTooltip);
+                });
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function sortTable(column) {
+            const table = document.getElementById('namesTable');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Track sort direction
+            const currentDirection = tbody.dataset.sortDirection === 'asc' ? 'desc' : 'asc';
+            tbody.dataset.sortDirection = currentDirection;
+
+            rows.sort((a, b) => {
+                let aValue = a.cells[column].textContent.trim();
+                let bValue = b.cells[column].textContent.trim();
+
+                if (column === 0) {
+                    // Sort by checkmark/x
+                    const comparison = aValue === '✅' ? -1 : 1;
+                    return currentDirection === 'asc' ? comparison : -comparison;
+                } else {
+                    // Sort by name
+                    const comparison = aValue.localeCompare(bValue);
+                    return currentDirection === 'asc' ? comparison : -comparison;
+                }
+            });
+
+            // Clear and re-append sorted rows
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

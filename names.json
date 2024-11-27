@@ -1,0 +1,71 @@
+{
+  "names": [
+    {
+      "name": "Rey",
+      "isSpaceName": true,
+      "description": "because of the e, a would make it not a space name. unless they make it fun like Raygun"
+    },
+    {
+      "name": "Finn",
+      "isSpaceName": false
+    },
+    {
+      "name": "Poe Dameron",
+      "isSpaceName": true
+    },
+    {
+      "name": "General Hux",
+      "isSpaceName": true,
+      "description": "I don't know first name though, could be not a space name"
+    },
+    {
+      "name": "Han Solo",
+      "isSpaceName": true
+    },
+    {
+      "name": "Luke Skywalker",
+      "isSpaceName": false
+    },
+    {
+      "name": "Princess Leia",
+      "isSpaceName": true
+    },
+    {
+      "name": "Kylo Ren",
+      "isSpaceName": true,
+      "description": "but Ben is not a space name"
+    },
+    {
+      "name": "Maz Kanata",
+      "isSpaceName": true
+    },
+    {
+      "name": "Supreme Leader Snoke",
+      "isSpaceName": true
+    },
+    {
+      "name": "C-3PO",
+      "isSpaceName": true
+    },
+    {
+      "name": "Lor San Tekka",
+      "isSpaceName": true
+    },
+    {
+      "name": "Chewbacca",
+      "isSpaceName": true
+    },
+    {
+      "name": "Captain Phasma",
+      "isSpaceName": true
+    },
+    {
+      "name": "Unkar Plutt",
+      "isSpaceName": true
+    },
+    {
+      "name": "Teedo",
+      "isSpaceName": true
+    }
+  ]
+} 
