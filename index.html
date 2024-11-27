@@ -67,9 +67,6 @@
                     const tooltip = document.createElement('div');
                     tooltip.className = 'tooltip';
                     tooltip.textContent = e.currentTarget.dataset.description;
-                    tooltip.style.position = 'absolute';
-                    tooltip.style.left = e.pageX + 10 + 'px';
-                    tooltip.style.top = e.pageY + 10 + 'px';
                     document.body.appendChild(tooltip);
                 };
 

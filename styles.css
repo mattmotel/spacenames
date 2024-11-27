@@ -122,13 +122,16 @@
 
   .tooltip {
       position: fixed;
+      bottom: 20px !important;
+      left: 50% !important;
+      transform: translateX(-50%);
       background-color: rgba(0, 0, 0, 0.9);
       color: white;
       padding: 12px;
       border-radius: 8px;
       font-size: 14px;
       z-index: 1000;
-      max-width: 280px;
+      max-width: 85%;
       word-wrap: break-word;
       line-height: 1.4;
       white-space: pre-wrap;
